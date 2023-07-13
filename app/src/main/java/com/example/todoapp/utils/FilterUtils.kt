@@ -21,7 +21,9 @@ object FilterUtils {
                 simpleQuery.append("WHERE completed = 0")
             }
 
-            else -> {}
+            else -> {
+                TaskFilterType.ALL_TASK
+            }
         }
         return SimpleSQLiteQuery(simpleQuery.toString())
     }

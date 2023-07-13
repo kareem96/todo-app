@@ -41,6 +41,8 @@ class NotificationWorker(context: Context, params: WorkerParameters) : Worker(co
                 setSmallIcon(R.drawable.ic_notifications_active)
                 setContentIntent(pendingIntent)
                 setContentTitle(activeTask.title)
+                priority = NotificationCompat.PRIORITY_HIGH
+                setDefaults(NotificationCompat.DEFAULT_ALL)
                 setContentText(
                     applicationContext.resources.getString(
                         R.string.notify_content, DateConverter.convertMillsToString(activeTask.date)

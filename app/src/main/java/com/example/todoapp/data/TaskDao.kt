@@ -18,7 +18,7 @@ interface TaskDao {
     @Query("select * from tasks where id = :taskId")
     fun getTaskById(taskId: Int): LiveData<Task>
 
-    @Query("select * from tasks where not completed order by date ASC")
+    @Query("SELECT * FROM tasks WHERE completed = 0 ORDER BY date ASC LIMIT 1")
     fun getActiveTask(): Task
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
