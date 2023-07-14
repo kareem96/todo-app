@@ -1,11 +1,9 @@
 package com.example.todoapp.presentation.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +12,6 @@ import com.example.todoapp.databinding.ItemTaskBinding
 import com.example.todoapp.presentation.component.TitleView
 import com.example.todoapp.presentation.detail.DetailActivity
 import com.example.todoapp.utils.DateConverter
-import com.example.todoapp.utils.FilterUtils.showToast
 import com.example.todoapp.utils.TASK_ID
 
 class TaskAdapter(private val onCheckChange: (Task, Boolean) -> Unit) :

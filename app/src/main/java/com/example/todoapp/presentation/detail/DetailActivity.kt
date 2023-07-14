@@ -2,9 +2,7 @@ package com.example.todoapp.presentation.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.todoapp.R
 import com.example.todoapp.data.Task
 import com.example.todoapp.databinding.ActivityDetailBinding
 import com.example.todoapp.presentation.ViewModelFactory
