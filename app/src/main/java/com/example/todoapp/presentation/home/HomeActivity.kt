@@ -21,7 +21,9 @@ import com.example.todoapp.presentation.ViewModelFactory
 import com.example.todoapp.presentation.adapter.TaskAdapter
 import com.example.todoapp.presentation.add.AddTaskActivity
 import com.example.todoapp.presentation.settings.SettingsActivity
+import com.example.todoapp.utils.Event
 import com.example.todoapp.utils.TaskFilterType
+import com.google.android.material.snackbar.Snackbar
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var mAdapter: TaskAdapter
@@ -40,7 +42,13 @@ class HomeActivity : AppCompatActivity() {
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
         viewModel.task.observe(this) { setupRecyclerView(it) }
+        viewModel.snackBar.observe(this, Observer(this::showSnackBar))
         initSetup()
+    }
+
+    private fun showSnackBar(event: Event<Int>){
+        val message = event.getContentIfNotHandled() ?: return
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
     private fun setupRecyclerView(tasks: PagedList<Task>) {

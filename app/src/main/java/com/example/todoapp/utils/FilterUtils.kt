@@ -1,6 +1,9 @@
 package com.example.todoapp.utils
 
+import android.content.Context
+import android.widget.Toast
 import androidx.sqlite.db.SimpleSQLiteQuery
+import com.example.todoapp.presentation.home.HomeActivity
 import java.lang.StringBuilder
 
 enum class TaskFilterType {
@@ -26,5 +29,10 @@ object FilterUtils {
             }
         }
         return SimpleSQLiteQuery(simpleQuery.toString())
+    }
+
+
+    fun showToast(s:String, context:Context){
+        Toast.makeText(context, s, Toast.LENGTH_SHORT).show()
     }
 }

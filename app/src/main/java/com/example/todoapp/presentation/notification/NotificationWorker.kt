@@ -49,7 +49,7 @@ class NotificationWorker(context: Context, params: WorkerParameters) : Worker(co
                     )
                 )
             }
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.S) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 NOTIFICATION_CHANNEL_ID,
                 channelName,
